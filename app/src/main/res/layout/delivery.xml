@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_margin="16dp"
+              android:orientation="vertical"
+    >
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_layout"
+        android:orientation="vertical">
+
+
+
+
+        <SearchView
+            android:id="@+id/simpleSearchView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search here"
+            />
+
+    </LinearLayout>
+
+<!--
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/paid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="17dp"
+            android:background="@drawable/button_selector"
+            android:text="Paid and Delivered"
+            android:textColor="#000000"
+            android:textSize="@dimen/text_size"/>
+
+
+        <Button
+            android:id="@+id/credited"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="17dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp"
+            android:layout_toEndOf="@+id/paid"
+            android:layout_toRightOf="@+id/paid"
+            android:background="@drawable/button_selector"
+            android:text="Credited and Delivered"
+            android:textColor="#000000"
+            android:textSize="@dimen/text_size"/>
+
+
+        <Button
+            android:id="@+id/partially"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/paid"
+            android:background="@drawable/button_selector"
+            android:text="Partially Paid and Delivered"
+            android:textColor="#000000"
+            android:textSize="@dimen/text_size"
+            android:layout_alignLeft="@+id/paid"
+            android:layout_alignStart="@+id/paid"
+            android:layout_toLeftOf="@+id/credited"
+            android:layout_toStartOf="@+id/credited"/>
+
+        <Button
+            android:id="@+id/discount"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_selector"
+            android:text="Discounted and Delivered"
+            android:textColor="#000000"
+            android:textSize="@dimen/text_size"
+            android:layout_below="@+id/credited"
+            android:layout_alignLeft="@+id/credited"
+            android:layout_alignStart="@+id/credited"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+-->
+
+
+</ScrollView>

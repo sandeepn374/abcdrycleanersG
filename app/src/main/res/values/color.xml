@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="actionbar_color">#ff0000</color>
+    <color name="drawer_arrow_second_color">#ff0000</color>
+    <color name="button">#ffffff</color>
+
+    <color name="green_temp">#23A96E</color>
+    <color name="green_dark">#159204</color>
+    <color name="bright_green">#02D8B0</color>
+    <color name="button_green">#10a54a</color>
+    <color name="ldrawer_color">#FFFFFF</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="button_main">#18c117</color>
+    <color name="button_dark">#0fa466</color>
+    <color name="button_unable">#cccccc</color>
+    <color name="disconnet_color">#ea0923</color>
+</resources>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "775418475441",
+    "firebase_url": "https://drycleaners-a4452.firebaseio.com",
+    "project_id": "drycleaners-a4452",
+    "storage_bucket": "drycleaners-a4452.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775418475441:android:465b71fa4aa81f2e",
+        "android_client_info": {
+          "package_name": "com.ravikiraninfotech.abcdrycleaners"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775418475441-hjo54epfq2e825oql639pc9e401ia6t7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU4HCZWqhcrnOxRDiMReNk09AFbVAVmUA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
