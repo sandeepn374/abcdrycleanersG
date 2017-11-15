@@ -402,7 +402,7 @@ if (s.length()==10){
 				 name=edt_name.getText().toString();
 					//temp = edt_name.getText().toString();
 //validation
-				if(name.length() == 0) {
+				/*if(name.length() == 0) {
 					Toastmsg(CollectionActivity.this, "All fields are required");
 
 				}
@@ -410,20 +410,20 @@ if (s.length()==10){
 					// awesomeValidation.addValidation(this, R.id.edt_event_remarks, "^[2-9]{2}[0-9]{8}$", R.string.mobileerror);
 					Log.v("EditText411", edt_name.getText().toString());
 				}
-
+*/
 				 billNumber=edt_email.getText().toString();
 
 				 phone=edt_phone.getText().toString();
 
 //validation
-				if(phone.length() == 0) {
+				/*if(phone.length() == 0) {
 					Toastmsg(CollectionActivity.this, "All fields are required");
 
 				}
 				else if(phone.length() != 0){
 					// awesomeValidation.addValidation(this, R.id.edt_event_remarks, "^[2-9]{2}[0-9]{8}$", R.string.mobileerror);
 					Log.v("EditText425", edt_phone.getText().toString());
-				}
+				}*/
 
 				if (spinner.getSelectedItem().toString().equals("Others")){
 					System.out.print("cool");
@@ -433,14 +433,14 @@ if (s.length()==10){
 				}
 
 				//validation
-				if (spinner.getSelectedItem().toString().trim().equals("Select Cloth Type")) {
+			/*	if (spinner.getSelectedItem().toString().trim().equals("Select Cloth Type")) {
 					Toastmsg(CollectionActivity.this, "Please Select Cloth Type");
 				}
 				else{
 					Log.v("Spinner440",spinner.toString());
 				}
 
-
+*/
 
 				if (spinner1.getSelectedItem().toString().equals("Others")){
 					System.out.print("cool");
@@ -449,12 +449,12 @@ if (s.length()==10){
 				}
 				//String text2 = spinner2.getSelectedItem().toString();
 //validation
-				if (spinner1.getSelectedItem().toString().trim().equals("Select Price")) {
+				/*if (spinner1.getSelectedItem().toString().trim().equals("Select Price")) {
 					Toastmsg(CollectionActivity.this, "Please Select Price");
 				}
 				else{
 					Log.v("Spinner456",spinner1.toString());
-				}
+				}*/
 
 				if (spinner3.getSelectedItem().toString().equals("Others")){
 					System.out.print("cool");
@@ -462,23 +462,30 @@ if (s.length()==10){
 					text3[0] = spinner3.getSelectedItem().toString();
 				}
 				//validation
-				if (spinner3.getSelectedItem().toString().trim().equals("Select Quantity")) {
+				/*if (spinner3.getSelectedItem().toString().trim().equals("Select Quantity")) {
 					Toastmsg(CollectionActivity.this, "Please Select Quantity");
 				}
 				else{
 					Log.v("Spinner469",spinner3.toString());
-				}
+				}*/
 
 				text2[0]=spinner2.getSelectedItem().toString();
 				//if(text[0].equals("Others")){
 //validation
-				if (spinner2.getSelectedItem().toString().trim().equals("Select Remark")) {
+				/*if (spinner2.getSelectedItem().toString().trim().equals("Select Remark")) {
 					Toastmsg(CollectionActivity.this, "Please Select Remark");
 				}
 				else{
 					Log.v("Spinner479",spinner2.toString());
+				}*/
+				if(spinner2.getSelectedItem().toString().trim().equals("Select Remark") || spinner3.getSelectedItem().toString().trim().equals("Select Quantity") || spinner1.getSelectedItem().toString().trim().equals("Select Price") || spinner.getSelectedItem().toString().trim().equals("Select Cloth Type") || (name.length() == 0) || phone.length()==0)
+				{Toastmsg(CollectionActivity.this, "Please enter complete and proper values for all the fields");
+					
+					
 				}
+				else{
 				billdetails();
+				}
 
 
 				//}
