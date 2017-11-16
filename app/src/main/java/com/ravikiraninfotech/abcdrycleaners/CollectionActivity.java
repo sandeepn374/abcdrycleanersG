@@ -133,7 +133,7 @@ public class CollectionActivity extends Activity
 						}
 					});
 
-					alert.setNegativeButton("No Option", new DialogInterface.OnClickListener() {
+					alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int whichButton) {
 							// what ever you want to do with No option.
 							//alert1.dismiss();
@@ -192,7 +192,7 @@ public class CollectionActivity extends Activity
 						}
 					});
 
-					alert.setNegativeButton("No Option", new DialogInterface.OnClickListener() {
+					alert.setNegativeButton("No ", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int whichButton) {
 							// what ever you want to do with No option.
 							//alert1.dismiss();
