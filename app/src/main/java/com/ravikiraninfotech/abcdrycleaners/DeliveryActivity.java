@@ -126,6 +126,7 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
                             tv5.setLayoutParams(trparams);
                             tv0.setLayoutParams(trparams);
                             tv0.setTextColor(Color.RED);
+                            
                             tv0.setText("Total Due " + tot);
                             TableRow tr0 = new TableRow(DeliveryActivity.this);
 
