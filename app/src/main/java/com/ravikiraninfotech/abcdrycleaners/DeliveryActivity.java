@@ -3,6 +3,7 @@ package com.ravikiraninfotech.abcdrycleaners;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -80,7 +81,7 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
                             }
                         }
                         java.util.Collections.reverse(users);
-int l=0;
+                        int l=0;
                         int tot=0;
                         for(int h=0;h<users.size();h++){
                             tot=tot+users.get(h).due;
@@ -519,4 +520,13 @@ int l=0;
         }
         return false;
     }
+
+    public void onBackPressed(){
+        Intent i=new Intent(DeliveryActivity.this,SampleActivity.class);
+        startActivity(i);
+        setContentView(R.layout.activity_sample);
+
+    }
+
+
 }

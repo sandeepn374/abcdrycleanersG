@@ -133,7 +133,7 @@ public class CollectionActivity extends Activity
 						}
 					});
 
-					alert.setNegativeButton("No Option", new DialogInterface.OnClickListener() {
+					alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int whichButton) {
 							// what ever you want to do with No option.
 							//alert1.dismiss();
@@ -192,7 +192,7 @@ public class CollectionActivity extends Activity
 						}
 					});
 
-					alert.setNegativeButton("No Option", new DialogInterface.OnClickListener() {
+					alert.setNegativeButton("No ", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int whichButton) {
 							// what ever you want to do with No option.
 							//alert1.dismiss();
@@ -479,8 +479,10 @@ if (s.length()==10){
 					Log.v("Spinner479",spinner2.toString());
 				}*/
 				if(spinner2.getSelectedItem().toString().trim().equals("Select Remark") || spinner3.getSelectedItem().toString().trim().equals("Select Quantity") || spinner1.getSelectedItem().toString().trim().equals("Select Price") || spinner.getSelectedItem().toString().trim().equals("Select Cloth Type") || (name.length() == 0) || phone.length()==0)
-				{Toastmsg(CollectionActivity.this, "Please enter complete and proper values for all the fields");
-					
+				{
+					Toastmsg(CollectionActivity.this, "Please enter complete and proper values for all the fields");
+					edt_name.setError("Please Enter proper Name");
+					edt_phone.setError("Please enter valid Phone Number");
 					
 				}
 				else{
@@ -512,80 +514,87 @@ if (s.length()==10){
 
 
 		btn_submit.setOnClickListener(new OnClickListener() {
-	public void onClick(View view) {
+			public void onClick(View view) {
+				if (spinner2.getSelectedItem().toString().trim().equals("Select Remark") || spinner3.getSelectedItem().toString().trim().equals("Select Quantity") || spinner1.getSelectedItem().toString().trim().equals("Select Price") || spinner.getSelectedItem().toString().trim().equals("Select Cloth Type") || (name.length() == 0) || phone.length() == 0) {
+					Toastmsg(CollectionActivity.this, "Please enter complete and proper values for all the fields");
+					edt_name.setError("Please Enter proper Name");
+					edt_phone.setError("Please enter valid Phone Number");
+
+				}
+				else
+					{
 
 
 
+				final Dialog dialog = new Dialog(CollectionActivity.this);
+				dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+				dialog.setCancelable(false);
+				dialog.setContentView(com.ravikiraninfotech.abcdrycleaners.R.layout.layout);
 
-		final Dialog dialog = new Dialog(CollectionActivity.this);
-		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		dialog.setCancelable(false);
-		dialog.setContentView(com.ravikiraninfotech.abcdrycleaners.R.layout.layout);
+				TableLayout stk = (TableLayout) dialog.findViewById(com.ravikiraninfotech.abcdrycleaners.R.id.table_main);
+				TableRow tbrow99 = new TableRow(CollectionActivity.this);
+				TextView tv99 = new TextView(CollectionActivity.this);
+				tv99.setText("Bill Number - " + billNumber);
+				tv99.setGravity(Gravity.CENTER);
+				tbrow99.addView(tv99);
+				stk.addView(tbrow99);
 
-		TableLayout stk = (TableLayout) dialog.findViewById(com.ravikiraninfotech.abcdrycleaners.R.id.table_main);
-		TableRow tbrow99 = new TableRow(CollectionActivity.this);
-		TextView tv99 = new TextView(CollectionActivity.this);
-		tv99.setText("Bill Number - "+billNumber);
-		tv99.setGravity(Gravity.CENTER);
-		tbrow99.addView(tv99);
-		stk.addView(tbrow99);
+				TableRow tbrow0 = new TableRow(CollectionActivity.this);
+				TextView tv0 = new TextView(CollectionActivity.this);
+				tv0.setText(" Cloth Type ");
+				tv0.setTextColor(Color.BLACK);
+				tv0.setGravity(Gravity.CENTER);
+				tbrow0.addView(tv0);
+				TextView tv1 = new TextView(CollectionActivity.this);
+				tv1.setText(" Remark ");
+				tv1.setTextColor(Color.BLACK);
+				tv1.setGravity(Gravity.CENTER);
+				tbrow0.addView(tv1);
+				TextView tv2 = new TextView(CollectionActivity.this);
+				tv2.setText(" Quantity ");
+				tv2.setTextColor(Color.BLACK);
+				tv2.setGravity(Gravity.CENTER);
+				tbrow0.addView(tv2);
+				TextView tv3 = new TextView(CollectionActivity.this);
+				tv3.setText(" Price ");
+				tv3.setTextColor(Color.BLACK);
+				tv3.setGravity(Gravity.CENTER);
+				tbrow0.addView(tv3);
+				stk.addView(tbrow0);
+				for (int i = 0; i < billDetailsArrayList.size(); i++) {
+					TableRow tbrow = new TableRow(CollectionActivity.this);
+					TextView t1v = new TextView(CollectionActivity.this);
+					t1v.setText(billDetailsArrayList.get(i).getClothType());
+					t1v.setTextColor(Color.BLACK);
+					t1v.setGravity(Gravity.CENTER);
+					tbrow.addView(t1v);
 
-		TableRow tbrow0 = new TableRow(CollectionActivity.this);
-		TextView tv0 = new TextView(CollectionActivity.this);
-		tv0.setText(" Cloth Type ");
-		tv0.setTextColor(Color.BLACK);
-		tv0.setGravity(Gravity.CENTER);
-		tbrow0.addView(tv0);
-		TextView tv1 = new TextView(CollectionActivity.this);
-		tv1.setText(" Remark ");
-		tv1.setTextColor(Color.BLACK);
-		tv1.setGravity(Gravity.CENTER);
-		tbrow0.addView(tv1);
-		TextView tv2 = new TextView(CollectionActivity.this);
-		tv2.setText(" Quantity ");
-		tv2.setTextColor(Color.BLACK);
-		tv2.setGravity(Gravity.CENTER);
-		tbrow0.addView(tv2);
-		TextView tv3 = new TextView(CollectionActivity.this);
-		tv3.setText(" Price ");
-		tv3.setTextColor(Color.BLACK);
-		tv3.setGravity(Gravity.CENTER);
-		tbrow0.addView(tv3);
-		stk.addView(tbrow0);
-		for (int i = 0; i < billDetailsArrayList.size(); i++) {
-			TableRow tbrow = new TableRow(CollectionActivity.this);
-			TextView t1v = new TextView(CollectionActivity.this);
-			t1v.setText(billDetailsArrayList.get(i).getClothType());
-			t1v.setTextColor(Color.BLACK);
-			t1v.setGravity(Gravity.CENTER);
-			tbrow.addView(t1v);
-
-			TextView t2v = new TextView(CollectionActivity.this);
-			t2v.setText(billDetailsArrayList.get(i).getRemark());
-			t2v.setTextColor(Color.BLACK);
-			t2v.setGravity(Gravity.CENTER);
-			tbrow.addView(t2v);
-			TextView t3v = new TextView(CollectionActivity.this);
-			t3v.setText(billDetailsArrayList.get(i).getQty());
-			t3v.setTextColor(Color.BLACK);
-			t3v.setGravity(Gravity.CENTER);
-			tbrow.addView(t3v);
-			TextView t4v = new TextView(CollectionActivity.this);
-			t4v.setText(billDetailsArrayList.get(i).getPrice());
-			t4v.setTextColor(Color.BLACK);
-			t4v.setGravity(Gravity.CENTER);
-			tbrow.addView(t4v);
-			stk.addView(tbrow);
-		}
+					TextView t2v = new TextView(CollectionActivity.this);
+					t2v.setText(billDetailsArrayList.get(i).getRemark());
+					t2v.setTextColor(Color.BLACK);
+					t2v.setGravity(Gravity.CENTER);
+					tbrow.addView(t2v);
+					TextView t3v = new TextView(CollectionActivity.this);
+					t3v.setText(billDetailsArrayList.get(i).getQty());
+					t3v.setTextColor(Color.BLACK);
+					t3v.setGravity(Gravity.CENTER);
+					tbrow.addView(t3v);
+					TextView t4v = new TextView(CollectionActivity.this);
+					t4v.setText(billDetailsArrayList.get(i).getPrice());
+					t4v.setTextColor(Color.BLACK);
+					t4v.setGravity(Gravity.CENTER);
+					tbrow.addView(t4v);
+					stk.addView(tbrow);
+				}
 
 
-		TableRow tr81=new TableRow(CollectionActivity.this);
-		TextView tv81=new TextView(CollectionActivity.this);
-		tv81.setText("Total Bill - "+ total);
-		tv81.setTextColor(Color.BLACK);
-		tv81.setGravity(Gravity.CENTER);
-		tr81.addView(tv81);
-		stk.addView(tr81);
+				TableRow tr81 = new TableRow(CollectionActivity.this);
+				TextView tv81 = new TextView(CollectionActivity.this);
+				tv81.setText("Total Bill - " + total);
+				tv81.setTextColor(Color.BLACK);
+				tv81.setGravity(Gravity.CENTER);
+				tr81.addView(tv81);
+				stk.addView(tr81);
 
 		/*TableRow tr90=new TableRow(CollectionActivity.this);
 		TextView tv90=new TextView(CollectionActivity.this);
@@ -597,137 +606,135 @@ if (s.length()==10){
 		*/
 
 
-
-		Button confirm = (Button) dialog.findViewById(com.ravikiraninfotech.abcdrycleaners.R.id.btn_dialog);
-		confirm.setText("Confirm");
-		confirm.setTextColor(Color.BLACK);
-
+				Button confirm = (Button) dialog.findViewById(com.ravikiraninfotech.abcdrycleaners.R.id.btn_dialog);
+				confirm.setText("Confirm");
+				confirm.setTextColor(Color.BLACK);
 
 
-
-
-		confirm.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View view) {
-
-
-				DatabaseReference  mDatabase = FirebaseDatabase.getInstance().getReference("usersG");
-				mDatabase.keepSynced(true);
-				String userId = mDatabase.push().getKey();
-
-				User user = new User(name, phone,billDetailsArrayList,billNumber,total,total,0);
-
-				mDatabase.child(userId).setValue(user);
-				dialog.dismiss();
-				//Toastmsg(CollectionActivity.this,"Your Order has been placed Successfully");
-				int qtyTotal=0;
-				try {
-					SmsManager smsManager = SmsManager.getDefault();
-
-					message= "Your order has been done successfully";
-					for(int i=0;i<billDetailsArrayList.size();i++){
-
-						String qty=billDetailsArrayList.get(i).getQty();
-						qtyTotal+=Integer.parseInt(qty);
-
-					}
-					message1+="ABC Drycleaners \nThanks for your order \n"+"Bill no:"+billNumber+" Quantity: "+qtyTotal+"\nTotal Price :Rs "+total+"\nDelivery date: "+time+"\nFor terms and conditions please refer abcdrycleaners.com";
-					message2+="\n\nCustomer Name: "+name+"\nBill no:"+billNumber+" Quantity: "+qtyTotal;
-					message+="Bill no:"+billNumber+"Quantity: "+qtyTotal+"Total Price :Rs "+total+"Delivery date:      "+time+"For terms and conditions please refer abcdrycleaners.com";
-					PendingIntent sentPI = PendingIntent.getBroadcast(CollectionActivity.this, 0, new Intent("SENT_SMS_ACTION_NAME"), 0);
-					PendingIntent deliveredPI = PendingIntent.getBroadcast(CollectionActivity.this, 0, new Intent("DELIVERED_SMS_ACTION_NAME"), 0);
-
-
-					SmsManager sms = SmsManager.getDefault();
-					ArrayList<String> parts = sms.divideMessage(message);
-
-					ArrayList<PendingIntent> sendList = new ArrayList<PendingIntent>();
-					sendList.add(sentPI);
-
-					ArrayList<PendingIntent> deliverList = new ArrayList<PendingIntent>();
-					deliverList.add(deliveredPI);
-
-					sms.sendMultipartTextMessage("+91"+phone, null, parts, sendList, deliverList);
-					//smsManager.sendTextMessage("+91"+phone, null,message, null, null);
-					Toast.makeText(getApplicationContext(), "SMS Sent!",
-							Toast.LENGTH_LONG).show();
-				} catch (Exception e) {
-					Toast.makeText(getApplicationContext(),
-							"SMS failed, please try again later!",
-							Toast.LENGTH_LONG).show();
-					e.printStackTrace();
-				}
-				edt_name.setText("");
-				edt_phone.setText("");
-				AlertDialog.Builder builder = new AlertDialog.Builder(CollectionActivity.this);
-
-				builder.setTitle("Confirm");
-				builder.setMessage("DO you want to Print the Bill ?");
-
-				builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-
-					public void onClick(DialogInterface dialog, int which) {
-						// Do nothing but close the dialog
-
-						//dialog.dismiss();
-						Toast.makeText(getApplicationContext(),
-								message,
-								Toast.LENGTH_LONG).show();
-						Intent i=new Intent(CollectionActivity.this,MainActivity.class);
-						Bundle b = new Bundle();
-
-						//Inserts a String value into the mapping of this Bundle
-						b.putString("MESSAGE1", message1);
-						b.putString("MESSAGE2", message2);
-						i.putExtras(b);
-						startActivity(i);
-					}
-				});
-
-				builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-
+				confirm.setOnClickListener(new OnClickListener() {
 					@Override
-					public void onClick(DialogInterface dialog, int which) {
+					public void onClick(View view) {
 
-						// Do nothing
+
+						DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("usersG");
+						mDatabase.keepSynced(true);
+						String userId = mDatabase.push().getKey();
+
+						User user = new User(name, phone, billDetailsArrayList, billNumber, total, total, 0);
+
+						mDatabase.child(userId).setValue(user);
 						dialog.dismiss();
+						//Toastmsg(CollectionActivity.this,"Your Order has been placed Successfully");
+						int qtyTotal = 0;
+						try {
+							SmsManager smsManager = SmsManager.getDefault();
 
-						Intent i=new Intent(CollectionActivity.this,SampleActivity.class);
+							message = "Your order has been done successfully";
+							for (int i = 0; i < billDetailsArrayList.size(); i++) {
+
+								String qty = billDetailsArrayList.get(i).getQty();
+								qtyTotal += Integer.parseInt(qty);
+
+							}
+							message1 += "ABC Drycleaners \nThanks for your order \n" + "Bill no:" + billNumber + " Quantity: " + qtyTotal + "\nTotal Price :Rs " + total + "\nDelivery date: " + time + "\nFor terms and conditions please refer abcdrycleaners.com";
+							message2 += "\n\nCustomer Name: " + name + "\nBill no:" + billNumber + " Quantity: " + qtyTotal;
+							message += "Bill no:" + billNumber + "Quantity: " + qtyTotal + "Total Price :Rs " + total + "Delivery date:      " + time + "For terms and conditions please refer abcdrycleaners.com";
+							PendingIntent sentPI = PendingIntent.getBroadcast(CollectionActivity.this, 0, new Intent("SENT_SMS_ACTION_NAME"), 0);
+							PendingIntent deliveredPI = PendingIntent.getBroadcast(CollectionActivity.this, 0, new Intent("DELIVERED_SMS_ACTION_NAME"), 0);
 
 
-						startActivity(i);
+							SmsManager sms = SmsManager.getDefault();
+							ArrayList<String> parts = sms.divideMessage(message);
+
+							ArrayList<PendingIntent> sendList = new ArrayList<PendingIntent>();
+							sendList.add(sentPI);
+
+							ArrayList<PendingIntent> deliverList = new ArrayList<PendingIntent>();
+							deliverList.add(deliveredPI);
+
+							sms.sendMultipartTextMessage("+91" + phone, null, parts, sendList, deliverList);
+							//smsManager.sendTextMessage("+91"+phone, null,message, null, null);
+							Toast.makeText(getApplicationContext(), "SMS Sent!",
+									Toast.LENGTH_LONG).show();
+						} catch (Exception e) {
+							Toast.makeText(getApplicationContext(),
+									"SMS failed, please try again later!",
+									Toast.LENGTH_LONG).show();
+							e.printStackTrace();
+						}
+						edt_name.setText("");
+						edt_phone.setText("");
+						AlertDialog.Builder builder = new AlertDialog.Builder(CollectionActivity.this);
+
+						builder.setTitle("Confirm");
+						builder.setMessage("DO you want to Print the Bill ?");
+
+						builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+							public void onClick(DialogInterface dialog, int which) {
+								// Do nothing but close the dialog
+
+								//dialog.dismiss();
+								Toast.makeText(getApplicationContext(),
+										message,
+										Toast.LENGTH_LONG).show();
+								Intent i = new Intent(CollectionActivity.this, MainActivity.class);
+								Bundle b = new Bundle();
+
+								//Inserts a String value into the mapping of this Bundle
+								b.putString("MESSAGE1", message1);
+								b.putString("MESSAGE2", message2);
+								i.putExtras(b);
+								startActivity(i);
+							}
+						});
+
+						builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+
+								// Do nothing
+								dialog.dismiss();
+
+								Intent i = new Intent(CollectionActivity.this, SampleActivity.class);
+
+
+								startActivity(i);
+							}
+						});
+
+						AlertDialog alert = builder.create();
+						alert.show();
+
+						//new RetrieveFeedTask().execute("subbu");
+						//sendLongSMS("hi hi");
+
+
 					}
 				});
 
-				AlertDialog alert = builder.create();
-				alert.show();
+				Button cancel = (Button) dialog.findViewById(com.ravikiraninfotech.abcdrycleaners.R.id.btn_dialog3);
+				cancel.setText("Cancel");
+				cancel.setTextColor(Color.BLACK);
 
-				//new RetrieveFeedTask().execute("subbu");
-				//sendLongSMS("hi hi");
+				cancel.setOnClickListener(new OnClickListener() {
+					public void onClick(View view) {
 
+						dialog.dismiss();
+					}
+				});
+
+
+				dialog.show();
 
 			}
-		});
-
-		Button cancel = (Button) dialog.findViewById(com.ravikiraninfotech.abcdrycleaners.R.id.btn_dialog3);
-		cancel.setText("Cancel");
-		cancel.setTextColor(Color.BLACK);
-
-		cancel.setOnClickListener(new OnClickListener(){
-			public void onClick(View view ){
-
-				dialog.dismiss();
-			}
-		});
-
-
-		dialog.show();
-
-	}
+		}
 
 });
 
 	}
+
 
 	private void billdetails() {
 

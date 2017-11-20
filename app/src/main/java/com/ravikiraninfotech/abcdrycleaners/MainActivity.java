@@ -640,5 +640,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
         this.portType=portType;
 
     }
+    public void onBackPressed(){
+        Intent i=new Intent(MainActivity.this,SampleActivity.class);
+        startActivity(i);
+
+    }
 
 }
