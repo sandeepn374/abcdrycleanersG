@@ -99,12 +99,23 @@ int l=0;
 
                             TextView tv0 = new TextView(DeliveryActivity.this);
 
+							
+							String rem="";
+							for(int p=0;l<user.billDetailsArrayList.size();p++){
+								
+								rem=rem+"Cloth Type  "+user.billDetailsArrayList.get(p).clothType+"\n";
+								
+								rem=rem+"Quantity  "+user.billDetailsArrayList.get(p).qty+"\n";
+								
+								rem=rem+"Price  "+user.billDetailsArrayList.get(p).price+"\n";
+								
+								}
 
                             tv1.setText("Name " + user.name);
                             tv2.setText("Bill Number " + user.billNumber);
                             tv3.setText("Amount " + user.total);
                             tv4.setText("Due  " + user.due);
-                            tv5.setText("Discount  " + user.discount);
+                            tv5.setText("Discount  " + user.discount+"\n"+rem);
                             totDue += user.due;
                             TableRow.LayoutParams trparams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT);
                             tv1.setLayoutParams(trparams);
