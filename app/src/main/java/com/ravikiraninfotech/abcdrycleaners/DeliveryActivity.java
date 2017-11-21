@@ -516,7 +516,7 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
 
 
                                                     final EditText edittext = new EditText(DeliveryActivity.this);
-                                                    alert.setMessage("Please enter the which Cloth to Return");
+                                                    alert.setMessage("Please enter which Cloth to Return");
                                                     alert.setTitle("Return Cloth ");
 
                                                     alert.setView(edittext);
