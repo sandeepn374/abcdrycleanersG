@@ -49,6 +49,7 @@ public class CollectionActivity extends Activity
 	String message;
 	String message1="";
 	String message2="";
+	String message3="";
 	String name,phone,billNumber;
 
 	String time;
@@ -515,7 +516,7 @@ if (s.length()==10){
 
 		btn_submit.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
-				if (spinner2.getSelectedItem().toString().trim().equals("Select Remark") || spinner3.getSelectedItem().toString().trim().equals("Select Quantity") || spinner1.getSelectedItem().toString().trim().equals("Select Price") || spinner.getSelectedItem().toString().trim().equals("Select Cloth Type") || (name.length() == 0) || phone.length() == 0) {
+				/*if (spinner2.getSelectedItem().toString().trim().equals("Select Remark") || spinner3.getSelectedItem().toString().trim().equals("Select Quantity") || spinner1.getSelectedItem().toString().trim().equals("Select Price") || spinner.getSelectedItem().toString().trim().equals("Select Cloth Type") || (name.length() == 0) || phone.length() == 0) {
 					Toastmsg(CollectionActivity.this, "Please enter complete and proper values for all the fields");
 					edt_name.setError("Please Enter proper Name");
 					edt_phone.setError("Please enter valid Phone Number");
@@ -523,7 +524,7 @@ if (s.length()==10){
 				}
 				else
 					{
-
+*/
 
 
 				final Dialog dialog = new Dialog(CollectionActivity.this);
@@ -638,7 +639,12 @@ if (s.length()==10){
 							}
 							message1 += "ABC Drycleaners \nThanks for your order \n" + "Bill no:" + billNumber + " Quantity: " + qtyTotal + "\nTotal Price :Rs " + total + "\nDelivery date: " + time + "\nFor terms and conditions please refer abcdrycleaners.com";
 							message2 += "\n\nCustomer Name: " + name + "\nBill no:" + billNumber + " Quantity: " + qtyTotal;
+							//message3+= "Cloth Type"+user.billDetailsArrayList;
 							message += "Bill no:" + billNumber + "Quantity: " + qtyTotal + "Total Price :Rs " + total + "Delivery date:      " + time + "For terms and conditions please refer abcdrycleaners.com";
+							for(int k=0;k<billDetailsArrayList.size();k++){
+								message+="Cloth Type "+billDetailsArrayList.get(k).clothType+"\n"+"Price "+billDetailsArrayList.get(k).price+"\n"+"Qty "+billDetailsArrayList.get(k).qty+"\n";
+
+							}
 							PendingIntent sentPI = PendingIntent.getBroadcast(CollectionActivity.this, 0, new Intent("SENT_SMS_ACTION_NAME"), 0);
 							PendingIntent deliveredPI = PendingIntent.getBroadcast(CollectionActivity.this, 0, new Intent("DELIVERED_SMS_ACTION_NAME"), 0);
 
@@ -729,7 +735,7 @@ if (s.length()==10){
 				dialog.show();
 
 			}
-		}
+
 
 });
 

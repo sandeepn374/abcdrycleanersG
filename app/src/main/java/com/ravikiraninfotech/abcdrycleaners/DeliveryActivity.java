@@ -28,6 +28,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class DeliveryActivity extends Activity implements SearchView.OnQueryTextListener {
 
@@ -102,7 +103,7 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
 
 							
 							String rem="";
-							for(int p=0;l<user.billDetailsArrayList.size();p++){
+							for(int p=0;p<user.billDetailsArrayList.size();p++){
 								
 								rem=rem+"Cloth Type  "+user.billDetailsArrayList.get(p).clothType+"\n";
 								
@@ -126,7 +127,7 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
                             tv5.setLayoutParams(trparams);
                             tv0.setLayoutParams(trparams);
                             tv0.setTextColor(Color.RED);
-                            
+
                             tv0.setText("Total Due " + tot);
                             TableRow tr0 = new TableRow(DeliveryActivity.this);
 
@@ -480,15 +481,142 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
                                 }
                             });
 
+
+
+                            Button returnB = new Button(DeliveryActivity.this);
+                            returnB.setText("Return");
+                            returnB.setTextColor(Color.BLACK);
+                            returnB.setGravity(Gravity.CENTER);
+                            //  paid4.setWidth(5);
+                            returnB.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+
+                                    user.due = 0;
+
+
+                                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                                    mDatabase.keepSynced(true);
+                                    Query query = mDatabase.child("usersG").orderByChild("billNumber");
+                                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                            //String billNumber=null;
+                                            for (final DataSnapshot child : dataSnapshot.getChildren()) {
+                                                Log.d("User key", child.getKey());
+                                                Log.d("User val", child.child("billNumber").getValue().toString());
+                                                String billNumber = child.child("billNumber").getValue().toString();
+                                                final String[] partial = {""};
+                                                // child.getRef().child("due").setValue(0);
+                                                if (billNumber.equals(user.billNumber)) {
+
+                                                    final AlertDialog.Builder alert = new AlertDialog.Builder(DeliveryActivity.this);
+
+
+                                                    final EditText edittext = new EditText(DeliveryActivity.this);
+                                                    alert.setMessage("Please enter the which Cloth to Return");
+                                                    alert.setTitle("Return Cloth ");
+
+                                                    alert.setView(edittext);
+
+
+                                                    alert.setPositiveButton("Yes Option", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int whichButton) {
+                                                            //What ever you want to do with the value
+                                                            //Editable YouEditTextValue = edittext.getText();
+                                                            //OR
+                                                            ArrayList<HashMap<String,String>> listB = (ArrayList<HashMap<String,String>>) child.child("billDetailsArrayList").getValue();
+                                                           // int totalInt = Integer.parseInt(total);
+                                                            String cloth = edittext.getText().toString();
+
+                                                            HashMap<String,String> b=listB.get(0);
+
+                                                            if(b.get("clothType").equals(cloth)){
+
+
+                                                                String total = child.child("total").getValue().toString();
+                                                                int totalInt = Integer.parseInt(total);
+                                                               int sub= Integer.parseInt(b.get("qty"))*Integer.parseInt(b.get("price"));
+                                                                child.getRef().child("total").setValue(totalInt-sub);
+                                                                Toastmsg(DeliveryActivity.this, "Bill Has been Updated");
+
+
+                                                            }
+                                                            else {
+                                                                Toastmsg(DeliveryActivity.this, "ClothType not found");
+
+
+
+                                                            }
+
+                                                            //int partialInt = Integer.parseInt(partial);
+                                                            //child.getRef().child("due").setValue(0);
+                                                            //child.getRef().child("discount").setValue(partialInt);
+
+                                                            // alert1.dismiss();
+                                                            // Toastmsg(DeliveryActivity.this,"Bill Has been Updated");
+
+
+                                                        }
+                                                    });
+
+                                                    alert.setNegativeButton("No Option", new DialogInterface.OnClickListener() {
+                                                        public void onClick(DialogInterface dialog, int whichButton) {
+                                                            // what ever you want to do with No option.
+                                                            //alert1.dismiss();
+                                                        }
+                                                    });
+
+                                                    final AlertDialog alert1 = alert.create();
+
+                                                    alert1.show();
+
+
+                                                    setContentView(com.ravikiraninfotech.abcdrycleaners.R.layout.delivery);
+
+                                                    simpleSearchView = (SearchView) findViewById(com.ravikiraninfotech.abcdrycleaners.R.id.simpleSearchView);
+                                                    simpleSearchView.setOnQueryTextListener(DeliveryActivity.this);
+
+                                                }
+
+                                            }
+
+
+                                        }
+
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+
+                                        }
+                                    });
+                                    ;
+
+
+                                }
+                            });
+
+
+
+
                             TableRow tr5 = new TableRow(DeliveryActivity.this);
 
                             tr5.setLayoutParams(params);
                             tr5.addView(paid3);
                             tr5.addView(paid4);
 
+
+                            TableRow tr18 = new TableRow(DeliveryActivity.this);
+
+                            tr18.setLayoutParams(params);
+                            tr18.addView(returnB);
+
+
                             layoutINNER.addView(tr4);
 
                             layoutINNER.addView(tr5);
+                            layoutINNER.addView(tr18);
 
                             // tv0.setText("Total Due---"+totDue[0]);
                             //tv0.setTextColor(Color.RED);
