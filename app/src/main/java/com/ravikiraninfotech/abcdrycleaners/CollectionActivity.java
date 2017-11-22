@@ -491,20 +491,6 @@ if (s.length()==10){
 				}
 
 
-				//}
-
-               /* BillDetails b=new BillDetails(text[0],text1[0],text2[0],text3[0]);
-				String qty=text3[0];
-				String price=text1[0];
-				total+= Integer.parseInt(text1[0])* Integer.parseInt(text3[0]);
-				billDetailsArrayList.add(b);
-				spinner.setSelection(0);
-				spinner1.setSelection(0);
-				spinner2.setSelection(0);
-				spinner3.setSelection(0);
-				Toastmsg(CollectionActivity.this,"Added");*/
-
-
 
 			}
 
@@ -516,16 +502,17 @@ if (s.length()==10){
 
 		btn_submit.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
-				/*if (spinner2.getSelectedItem().toString().trim().equals("Select Remark") || spinner3.getSelectedItem().toString().trim().equals("Select Quantity") || spinner1.getSelectedItem().toString().trim().equals("Select Price") || spinner.getSelectedItem().toString().trim().equals("Select Cloth Type") || (name.length() == 0) || phone.length() == 0) {
-					Toastmsg(CollectionActivity.this, "Please enter complete and proper values for all the fields");
-					edt_name.setError("Please Enter proper Name");
-					edt_phone.setError("Please enter valid Phone Number");
+		
 
+				if(billDetailsArrayList.size()==0){
+
+
+					Toastmsg(CollectionActivity.this,"You have not entered any bill to submit");
 				}
-				else
-					{
-*/
-
+				
+				
+				
+				else{
 
 				final Dialog dialog = new Dialog(CollectionActivity.this);
 				dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -597,16 +584,7 @@ if (s.length()==10){
 				tr81.addView(tv81);
 				stk.addView(tr81);
 
-		/*TableRow tr90=new TableRow(CollectionActivity.this);
-		TextView tv90=new TextView(CollectionActivity.this);
-		tv90.setText("Delivery Date - "+ time);
-		tv90.setTextColor(Color.BLACK);
-		tv90.setGravity(Gravity.LEFT);
-		tr90.addView(tv90);
-		stk.addView(tr90);
-		*/
-
-
+	
 				Button confirm = (Button) dialog.findViewById(com.ravikiraninfotech.abcdrycleaners.R.id.btn_dialog);
 				confirm.setText("Confirm");
 				confirm.setTextColor(Color.BLACK);
@@ -734,6 +712,8 @@ if (s.length()==10){
 
 				dialog.show();
 
+			}
+			
 			}
 
 
