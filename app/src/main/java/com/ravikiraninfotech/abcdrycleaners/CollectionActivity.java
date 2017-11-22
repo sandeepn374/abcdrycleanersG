@@ -705,7 +705,7 @@ if (s.length()==10){
 
 								Intent i = new Intent(CollectionActivity.this, SampleActivity.class);
 
-
+//
 								startActivity(i);
 							}
 						});
