@@ -693,6 +693,7 @@ if (s.length()==10){
 
 						//new RetrieveFeedTask().execute("subbu");
 						//sendLongSMS("hi hi");
+						///////
 
 
 					}
