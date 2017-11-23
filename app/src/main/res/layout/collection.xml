@@ -16,13 +16,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phone No"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+               />
 
             <EditText
                 android:id="@+id/edt_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date" />
+                android:inputType="date"
+                android:maxLength="10"/>
 
 
              <TextView
