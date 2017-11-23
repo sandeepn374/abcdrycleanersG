@@ -482,8 +482,8 @@ if (s.length()==10){
 				if(spinner2.getSelectedItem().toString().trim().equals("Select Remark") || spinner3.getSelectedItem().toString().trim().equals("Select Quantity") || spinner1.getSelectedItem().toString().trim().equals("Select Price") || spinner.getSelectedItem().toString().trim().equals("Select Cloth Type") || (name.length() == 0) || phone.length()==0)
 				{
 					Toastmsg(CollectionActivity.this, "Please enter complete and proper values for all the fields");
-					edt_name.setError("Please Enter proper Name");
-					edt_phone.setError("Please enter valid Phone Number");
+					//edt_name.setError("Please Enter proper Name");
+					//edt_phone.setError("Please enter valid Phone Number");
 					
 				}
 				else{

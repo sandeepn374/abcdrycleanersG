@@ -36,6 +36,11 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
     SearchView simpleSearchView;
 
 
+    static {
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+    }
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,22 +106,27 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
 
                             TextView tv0 = new TextView(DeliveryActivity.this);
 
-							
-							String rem="";
-							for(int p=0;p<user.billDetailsArrayList.size();p++){
-								
-								rem=rem+"Cloth Type  "+user.billDetailsArrayList.get(p).clothType+"\n";
-								
-								rem=rem+"Quantity  "+user.billDetailsArrayList.get(p).qty+"\n";
-								
-								rem=rem+"Price  "+user.billDetailsArrayList.get(p).price+"\n";
-								
-								}
+
+                            String rem="";
+                            for(int p=0;p<user.billDetailsArrayList.size();p++){
+
+                                rem=rem+"Cloth Type  "+user.billDetailsArrayList.get(p).clothType+"\n";
+
+                                rem=rem+"Quantity  "+user.billDetailsArrayList.get(p).qty+"\n";
+
+                                rem=rem+"Price  "+user.billDetailsArrayList.get(p).price+"\n";
+
+                            }
 
                             tv1.setText("Name " + user.name);
                             tv2.setText("Bill Number " + user.billNumber);
                             tv3.setText("Amount " + user.total);
                             tv4.setText("Due  " + user.due);
+                            if (user.due==0)
+                                tv4.setTextColor(Color.GREEN);
+                            else
+                                tv4.setTextColor(Color.RED);
+
                             tv5.setText("Discount  " + user.discount+"\n"+rem);
                             totDue += user.due;
                             TableRow.LayoutParams trparams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT);
@@ -137,7 +147,7 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
                             tr0.addView(tv0);
                             if(l==0) {
                                 layoutINNER.addView(tr0);
-                            l++;
+                                l++;
                             }
 
 
@@ -528,7 +538,7 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
                                                             //Editable YouEditTextValue = edittext.getText();
                                                             //OR
                                                             ArrayList<HashMap<String,String>> listB = (ArrayList<HashMap<String,String>>) child.child("billDetailsArrayList").getValue();
-                                                           // int totalInt = Integer.parseInt(total);
+                                                            // int totalInt = Integer.parseInt(total);
                                                             String cloth = edittext.getText().toString();
 
                                                             HashMap<String,String> b=listB.get(0);
@@ -538,7 +548,7 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
 
                                                                 String total = child.child("total").getValue().toString();
                                                                 int totalInt = Integer.parseInt(total);
-                                                               int sub= Integer.parseInt(b.get("qty"))*Integer.parseInt(b.get("price"));
+                                                                int sub= Integer.parseInt(b.get("qty"))*Integer.parseInt(b.get("price"));
                                                                 child.getRef().child("total").setValue(totalInt-sub);
                                                                 Toastmsg(DeliveryActivity.this, "Bill Has been Updated");
 
@@ -627,9 +637,9 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
 
                         }
 
-                          //  }
-                            //System.out.println(user.email);
-                       // }
+                        //  }
+                        //System.out.println(user.email);
+                        // }
 
 
 

@@ -47,4 +47,9 @@ public class SampleActivity extends Activity {
         });
 
     }
+    public void onBackPressed(){
+        finish();
+        super.onBackPressed();
+
+    }
 }
