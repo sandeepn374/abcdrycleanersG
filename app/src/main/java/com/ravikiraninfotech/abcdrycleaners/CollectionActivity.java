@@ -480,22 +480,31 @@ if (s.length()==10){
 					Log.v("Spinner479",spinner2.toString());
 				}*/
 
-
-
-
-				if(spinner2.getSelectedItem().toString().trim().equals("Select Remark") || spinner3.getSelectedItem().toString().trim().equals("Select Quantity") || spinner1.getSelectedItem().toString().trim().equals("Select Price") || spinner.getSelectedItem().toString().trim().equals("Select Cloth Type") || (name.length() == 0) || phone.length()==0)
-				{
-
+				if((name.length() == 0)){
+					edt_name.setError("Please Enter  Name");
+				}
+				else if(phone.length()<9){
+					edt_phone.setError("Please enter valid Phone Number");
+				}
+				else if(spinner.getSelectedItem().toString().trim().equals("Select Cloth Type")){
 					((TextView)spinner.getChildAt(0)).setError("Please Enter Cloth Type");
+
+				}
+				else if(spinner1.getSelectedItem().toString().trim().equals("Select Price")){
 					((TextView)spinner1.getChildAt(0)).setError("Please Enter Price");
+
+				}
+
+				else if(spinner2.getSelectedItem().toString().trim().equals("Select Remark")){
 					((TextView)spinner2.getChildAt(0)).setError("Please Enter Remark");
+
+				}
+
+				else if(spinner3.getSelectedItem().toString().trim().equals("Select Quantity")){
 					((TextView)spinner3.getChildAt(0)).setError("Please Enter Quantity");
 
-					edt_name.setError("Please Enter  Name");
-					edt_phone.setError("Please enter valid Phone Number");
-					Toastmsg(CollectionActivity.this, "Please enter complete and proper values for all the fields");
-					
 				}
+
 				else{
 				billdetails();
 				}
