@@ -17,9 +17,7 @@
     <color name="button_unable">#cccccc</color>
     <color name="disconnet_color">#ea0923</color>
 
-	<color name="colorPrimary">#DC143C</color>
-    <color name="colorPrimaryDark">#da0551</color>
-    <color name="colorAccent">#000000</color>
+
     <color name="background">#ffffff</color>
     <color name="bg_login">#26ae90</color>
     <color name="bg_register">#2e3237</color>

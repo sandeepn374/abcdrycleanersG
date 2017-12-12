@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.myapp.warest.LoginActivity">
+    >
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
             android:background="@color/colorPrimary"
-            android:text="Collection"
+            android:text="COLLECTION"
             android:textColor="@android:color/white"  />
 
         <Button
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
             android:background="@color/colorPrimary"
-            android:text="Delivery"
+            android:text="DELIVERY"
             android:textAllCaps="false"
             android:textColor="@android:color/white"  />
 
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
             android:background="@color/colorPrimary"
-            android:text="Shop Expense"
+            android:text="SHOP EXPENSE"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="15dp" />

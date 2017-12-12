@@ -367,18 +367,18 @@ if (s.length()==10){
 					foo++;
 					if (foo < 9) {
 						String last = String.valueOf(foo);
-						billNumber = "G000" + last;
+						billNumber = "A000" + last;
 						edt_email.setText(billNumber);
 					} else if (foo < 99) {
 						String last = String.valueOf(foo);
-						billNumber = "G00" + last;
+						billNumber = "A00" + last;
 
 						edt_email.setText(billNumber);
 					}
 				}
 				else{
 
-					billNumber="G0001";
+					billNumber="A0001";
 					edt_email.setText(billNumber);
 				}
 
