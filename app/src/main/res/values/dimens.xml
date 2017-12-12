@@ -1,4 +1,7 @@
 <resources>
+	
+	<dimen name="activity_horizontal_margin">16dp</dimen>
+	
     <dimen name="navdrawer_width">260dp</dimen>
     <dimen name="text_size">18dp</dimen>
     <dimen name="btntext_size">12dp</dimen>
