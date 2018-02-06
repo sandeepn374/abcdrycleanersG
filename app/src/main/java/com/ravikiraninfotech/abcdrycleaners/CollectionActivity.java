@@ -51,7 +51,7 @@ public class CollectionActivity extends Activity
 	String message2="";
 	String message3="";
 	String name,phone,billNumber;
-
+	String pickDate,DelDate;
 	String time;
 	final String[] text = {""};
 
@@ -76,10 +76,12 @@ public class CollectionActivity extends Activity
 		Calendar c = Calendar.getInstance();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd : HH:mm");// HH:mm:ss");
 		String reg_date = df.format(c.getTime());
+		pickDate=reg_date;
 		//showtoast("Currrent Date Time : "+reg_date);
 
 		c.add(Calendar.DATE, 4);  // number of days to add
 		time = df.format(c.getTime());
+		DelDate=time;
 		super.onCreate(savedInstanceState);
 		setContentView(com.ravikiraninfotech.abcdrycleaners.R.layout.collection);
 		edt_name= (EditText) findViewById(com.ravikiraninfotech.abcdrycleaners.R.id.edt_name);
@@ -619,7 +621,7 @@ if (s.length()==10){
 						mDatabase.keepSynced(true);
 						String userId = mDatabase.push().getKey();
 
-						User user = new User(name, phone, billDetailsArrayList, billNumber, total, total, 0);
+						User user = new User(name, phone, billDetailsArrayList, billNumber, total, total, 0,0,DelDate,pickDate);
 
 						mDatabase.child(userId).setValue(user);
 						dialog.dismiss();
