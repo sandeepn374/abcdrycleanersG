@@ -32,6 +32,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import org.joda.time.LocalDate;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -554,12 +556,12 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
                                                     spinnerforcloth.setAdapter(spinnerAdapter);
 
 
-                                                    spinnerAdapter.add("Select the cloth to be returned ");
+                                                    spinnerAdapter.add("Select");
 
                                                     for(int p=0;p<listB.size();p++){
 
 
-                                                        spinnerAdapter.add(listB.get(p).get("clothType")+"- "+listB.get(p).get("remark"));
+                                                        spinnerAdapter.add(listB.get(p).get("clothType")+"-"+listB.get(p).get("remark")+"-"+listB.get(p).get("price"));
                                                     }
 
                                                     spinnerAdapter.notifyDataSetChanged();
@@ -607,7 +609,7 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
 
 
 
-                                                                    spinnerAdapter.add("Select the qty to be returned ");
+                                                                    spinnerAdapter.add("Select");
 
                                                                     int count=Integer.parseInt(b.get("qty"));
 
@@ -649,13 +651,10 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
 
                                                                                 String message = "Bill Number: "+user.billNumber;
                                                                                 message+="\n Cloth Type : "+b.get("clothType");
-                                                                                message+="Is Returned";
-                                                                                Calendar today = Calendar.getInstance();
-                                                                                today.set(Calendar.HOUR_OF_DAY, 0);
+                                                                                message+="  is Returned";
 
-                                                                                SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-                                                                                System.out.println(today.getTime());
-                                                                                message+="\n"+today.getTime();
+                                                                                LocalDate localDate = new LocalDate();
+                                                                                message+="\nDate - "+localDate.toString();
 
 
 
@@ -714,21 +713,12 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
 
 
                                                                 }
-                                                                   // Toastmsg(DeliveryActivity.this, "ClothType not found");
-
 
 
 
                                                             }
 
 
-
-                                                            //int partialInt = Integer.parseInt(partial);
-                                                            //child.getRef().child("due").setValue(0);
-                                                            //child.getRef().child("discount").setValue(partialInt);
-
-                                                            // alert1.dismiss();
-                                                            // Toastmsg(DeliveryActivity.this,"Bill Has been Updated");
 
 
                                                         }
@@ -737,7 +727,7 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
                                                     alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                                                         public void onClick(DialogInterface dialog, int whichButton) {
                                                             // what ever you want to do with No option.
-                                                            //alert1.dismiss();
+                                                            dialog.dismiss();
                                                         }
                                                     });
 

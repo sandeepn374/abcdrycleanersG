@@ -630,19 +630,19 @@ if (s.length()==10){
 						try {
 							SmsManager smsManager = SmsManager.getDefault();
 
-							message = "Your order has been done successfully";
+							message = "Your order has been done successfully.\n";
 							for (int i = 0; i < billDetailsArrayList.size(); i++) {
 
 								String qty = billDetailsArrayList.get(i).getQty();
 								qtyTotal += Integer.parseInt(qty);
 
 							}
-							message1 += "ABC Drycleaners \nThanks for your order \n" + "Bill no:" + billNumber + " Quantity: " + qtyTotal + "\nTotal Price :Rs " + total + "\nDelivery date: " + time + "\nFor terms and conditions please refer abcdrycleaners.com";
-							message2 += "\n\nCustomer Name: " + name + "\nBill no:" + billNumber + " Quantity: " + qtyTotal;
+						//	message1 += "ABC Drycleaners \nThanks for your order \n" + "\n Bill no:" + billNumber + " Quantity: " + qtyTotal + "\nTotal Price :Rs " + total + "\nDelivery date: " + time + "\nFor terms and conditions please refer abcdrycleaners.com";
+						//	message2 += "\n\nCustomer Name: " + name + "\nBill no:" + billNumber + " Quantity: " + qtyTotal;
 							//message3+= "Cloth Type"+user.billDetailsArrayList;
-							message += "Bill no:" + billNumber + "Quantity: " + qtyTotal + "Total Price :Rs " + total + "Delivery date:      " + time + "For terms and conditions please refer abcdrycleaners.com";
+							message += "Bill no:" + billNumber + "\nQuantity: " + qtyTotal + "\nTotal Price :Rs " + total + "\nDelivery date:      " + time + "\nFor terms and conditions please refer abcdrycleaners.com";
 							for(int k=0;k<billDetailsArrayList.size();k++){
-								message+="Cloth Type "+billDetailsArrayList.get(k).clothType+"\n"+"Price "+billDetailsArrayList.get(k).price+"\n"+"Qty "+billDetailsArrayList.get(k).qty+"\n";
+								message+="\nCloth Type "+billDetailsArrayList.get(k).clothType+"\n"+"Price "+billDetailsArrayList.get(k).price+"\n"+"Qty "+billDetailsArrayList.get(k).qty+"\n";
 
 							}
 							PendingIntent sentPI = PendingIntent.getBroadcast(CollectionActivity.this, 0, new Intent("SENT_SMS_ACTION_NAME"), 0);
