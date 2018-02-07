@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.telephony.SmsManager;
+import android.text.InputType;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -360,7 +361,8 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
                                                     final EditText edittext = new EditText(DeliveryActivity.this);
                                                     alert.setMessage("Please enter the partial paid amount");
                                                     alert.setTitle("Amount");
-
+                                                    edittext.setInputType(InputType.TYPE_CLASS_NUMBER);
+                                                    edittext.setText("0");
                                                     alert.setView(edittext);
 
                                                     alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -454,6 +456,8 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
                                                     final EditText edittext = new EditText(DeliveryActivity.this);
                                                     alert.setMessage("Please enter the discount amount");
                                                     alert.setTitle(" Discount Amount");
+                                                    edittext.setInputType(InputType.TYPE_CLASS_NUMBER);
+                                                    edittext.setText("0");
 
                                                     alert.setView(edittext);
 
@@ -556,12 +560,12 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
                                                     spinnerforcloth.setAdapter(spinnerAdapter);
 
 
-                                                    spinnerAdapter.add("Select");
+                                                   // spinnerAdapter.add("Select");
 
                                                     for(int p=0;p<listB.size();p++){
 
 
-                                                        spinnerAdapter.add(listB.get(p).get("clothType")+"-"+listB.get(p).get("remark")+"-"+listB.get(p).get("price"));
+                                                        spinnerAdapter.add(listB.get(p).get("clothType")+"-"+listB.get(p).get("remark"));
                                                     }
 
                                                     spinnerAdapter.notifyDataSetChanged();
@@ -609,7 +613,7 @@ public class DeliveryActivity extends Activity implements SearchView.OnQueryText
 
 
 
-                                                                    spinnerAdapter.add("Select");
+                                                                   // spinnerAdapter.add("Select");
 
                                                                     int count=Integer.parseInt(b.get("qty"));
 

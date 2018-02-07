@@ -7,6 +7,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@color/white"
             >
 
 
@@ -98,6 +99,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Add Item"
+                android:layout_marginTop="15dp"
+                android:textColor="@android:color/white"
+                android:background="@color/colorPrimary"
+
                 />
 
 
@@ -106,6 +111,9 @@
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:text="Submit Order"
+                android:textColor="@android:color/white"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="15dp"
                     />
 
         </LinearLayout>

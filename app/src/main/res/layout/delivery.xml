@@ -15,19 +15,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/main_layout"
+        android:background="@color/white"
         android:orientation="vertical"
         android:focusableInTouchMode="true">
 
 
-
-
         <SearchView
             android:id="@+id/simpleSearchView"
-            android:layout_width="wrap_content"
+            android:layout_width="388dp"
             android:layout_height="wrap_content"
+            android:background="@color/actionbar_color"
             android:iconifiedByDefault="false"
             android:queryHint="Search here"
-            />
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 

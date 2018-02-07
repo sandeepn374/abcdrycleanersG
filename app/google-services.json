@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "775418475441",
-    "firebase_url": "https://drycleaners-a4452.firebaseio.com",
-    "project_id": "drycleaners-a4452",
-    "storage_bucket": "drycleaners-a4452.appspot.com"
+    "project_number": "506612648374",
+    "firebase_url": "https://laundry-f6adb.firebaseio.com",
+    "project_id": "laundry-f6adb",
+    "storage_bucket": "laundry-f6adb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:775418475441:android:465b71fa4aa81f2e",
+        "mobilesdk_app_id": "1:506612648374:android:465b71fa4aa81f2e",
         "android_client_info": {
           "package_name": "com.ravikiraninfotech.abcdrycleaners"
         }
       },
       "oauth_client": [
         {
-          "client_id": "775418475441-hjo54epfq2e825oql639pc9e401ia6t7.apps.googleusercontent.com",
+          "client_id": "506612648374-48e75adf71a0s9fkldqq5anvbkufugd8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAU4HCZWqhcrnOxRDiMReNk09AFbVAVmUA"
+          "current_key": "AIzaSyBODAbwUCcflIPUqGpzS_hmFGCcbQWTGdY"
         }
       ],
       "services": {
